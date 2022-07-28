@@ -4,7 +4,6 @@ export const state = () => {
   return {
     endpoint: "",
     domain: "",
-    preloaderActive: true,
     breakpoints: {
       [Breakpoint.Desktop]: true,
       [Breakpoint.Tablet]: true,
@@ -22,9 +21,6 @@ export const mutations = {
   },
   setBreakpoint(state, val) {
     state.breakpoints[val.key] = val.value;
-  },
-  setPreloaderActive(state, val) {
-    state.preloaderActive = val;
   }
 };
 

@@ -1,36 +1,16 @@
 <template>
-  <div v-scroll-lock="isMSCHFPreloaderActive">
-    <MSCHFPreloader
-      :drop-number="69"
-      :drop-name="'Something'"
-      :drop-id="'Something'"
-      :is-parent-drop="false"
-      :is-secret="false"
-      @didLoad="isMSCHFPreloaderActive = true"
-      @willDisappear="isMSCHFPreloaderActive = false"
-      @disappeared="onPreloaderDisappear"
-    />
-
+  <div>
     <nuxt />
   </div>
 </template>
 
 <script>
 import smoothscroll from "smoothscroll-polyfill";
-import MSCHFPreloader from "~/components/MSCHFPreloader.vue";
 import { registerBootlegVH } from "~/assets/js/utils";
 import { BreakPointSet } from "~/assets/js/mixins/breakpoints";
 
 export default {
-  components: {
-    MSCHFPreloader
-  },
   mixins: [BreakPointSet],
-  data() {
-    return {
-      isMSCHFPreloaderActive: true
-    };
-  },
   computed: {
     currentRoute() {
       return this.$route.path;
@@ -45,11 +25,7 @@ export default {
       e.preventDefault();
     });
   },
-  methods: {
-    onPreloaderDisappear() {
-      this.$store.commit("setPreloaderActive", false);
-    }
-  }
+  methods: {}
 };
 </script>
 <style lang="scss">
